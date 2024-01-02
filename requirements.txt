@@ -1,0 +1,6 @@
+streamlit
+streamlit_extras
+langchain
+langchain_experimental
+openai
+tabulate
