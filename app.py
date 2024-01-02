@@ -1,4 +1,5 @@
 import streamlit as st
+import toml
 import requests
 import pandas as pd
 from langchain.chat_models import ChatOpenAI
@@ -48,8 +49,7 @@ st.text("what is the average of CH4f where Cat1 is Combustibles?")
 st.text("what is the highest value of CO2f which has belong to Fossiles in Cat2?")
 
 query_text = st.text_area('Ask me a question')
-# openai_api_key = "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"
-openai_api_key = "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"
+openai_api_key = st.secrets["open_ai_key"]
 
 # App logic
 if not openai_api_key.startswith('sk-'):
