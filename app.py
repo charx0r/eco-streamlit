@@ -22,10 +22,18 @@ def load_data():
 
     return df
 
+# Load data from csv
+def load_csv_data():
+    df = pd.read_csv("clean_data.csv")
+    return df
+
 # Generate LLM response
 def generate_response(input_query):
   llm = ChatOpenAI(model_name='gpt-3.5-turbo-1106', temperature=0.2, openai_api_key=openai_api_key)
-  df = load_data()
+  # Load Data via api
+#   df = load_data()
+  # Load Data via csv
+  df = load_csv_data()
   # Create Pandas DataFrame Agent
   agent = create_pandas_dataframe_agent(llm, df, verbose=True, agent_type=AgentType.OPENAI_FUNCTIONS)
   # Perform Query using the Agent
